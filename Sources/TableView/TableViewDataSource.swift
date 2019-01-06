@@ -66,18 +66,18 @@ public class TableViewDataSource: NSObject {
 
 extension TableViewDataSource: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    private func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let model = models.value[indexPath.section].items[indexPath.row]
         onSelectCell.accept((indexPath, model))
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    private func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return models.value[indexPath.section].items[indexPath.row].cellHeight
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    private func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         let model = models.value[indexPath.section].items[indexPath.row]
         return model.estimatedCellHeight ?? model.cellHeight
     }
