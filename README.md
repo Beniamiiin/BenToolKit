@@ -5,3 +5,7 @@ Collection of helpers, extensions and useful tools
 ```
 pod 'BenToolKit',  :git => 'https://github.com/Beniamiiin/BenToolKit.git'
 ```
+
+### License
+
+MIT
