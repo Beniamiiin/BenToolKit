@@ -18,7 +18,7 @@ open class TableViewDataSource: NSObject {
     public private(set) var models = BehaviorRelay<[TableSectionModel]>(value: [])
     
     // Output
-    public var onSelectCell = PublishRelay<(IndexPath, TableCellModelProtocol)>()
+    public private(set) var onSelectCell = PublishRelay<(IndexPath, TableCellModelProtocol)>()
     
     // MARK: - Private variables
     
