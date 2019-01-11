@@ -10,15 +10,15 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-public class TableViewDataSource: NSObject {
+open class TableViewDataSource: NSObject {
     
     // MARK: - Public variables
     
     // Input
-    var models = BehaviorRelay<[TableSectionModel]>(value: [])
+    public var models = BehaviorRelay<[TableSectionModel]>(value: [])
     
     // Output
-    var onSelectCell = PublishRelay<(IndexPath, TableCellModelProtocol)>()
+    public var onSelectCell = PublishRelay<(IndexPath, TableCellModelProtocol)>()
     
     // MARK: - Private variables
     
@@ -41,7 +41,7 @@ public class TableViewDataSource: NSObject {
     
     // MARK: - Public functions
     
-    func setup(with tableView: UITableView) {
+    open func setup(with tableView: UITableView) {
         self.tableView = tableView
         
         tableView.rx
@@ -66,18 +66,18 @@ public class TableViewDataSource: NSObject {
 
 extension TableViewDataSource: UITableViewDelegate {
     
-    private func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let model = models.value[indexPath.section].items[indexPath.row]
         onSelectCell.accept((indexPath, model))
     }
     
-    private func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return models.value[indexPath.section].items[indexPath.row].cellHeight
     }
     
-    private func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    open func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         let model = models.value[indexPath.section].items[indexPath.row]
         return model.estimatedCellHeight ?? model.cellHeight
     }
