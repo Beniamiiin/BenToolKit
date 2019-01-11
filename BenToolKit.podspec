@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "BenToolKit"
-  s.version               = "0.0.3"
+  s.version               = "0.0.4"
   s.summary               = "Tool kit"
   s.homepage              = "https://github.com/Beniamiiin/BenToolKit"
   s.license               = { :type => "MIT", :file => "LICENSE" }
@@ -23,27 +23,27 @@ Pod::Spec.new do |s|
     sp.dependency 'RxDataSources'
   end
 
-  s.subspec 'DispatchQueue' do |sp|
-    sp.source_files = 'Sources/Extensions/DispatchQueue+EasyApi.swift'
+  s.subspec 'Extensions' do |sp|
+    sp.subspec 'DispatchQueue' do |sp|
+      sp.source_files = 'Sources/Extensions/DispatchQueue+EasyApi.swift'
+      sp.dependency 'BenToolKit/Constants'
+    end
 
-    sp.dependency 'BenToolKit/Constants'
-  end
+    sp.subspec 'UIAlertController' do |sp|
+      sp.source_files = 'Sources/Extensions/UIAlertController+EasyApi.swift'
+    end
 
-  s.subspec 'UIAlertController' do |sp|
-    sp.source_files = 'Sources/Extensions/UIAlertController+EasyApi.swift'
-  end
+    sp.subspec 'UITableView' do |sp|
+      sp.source_files = 'Sources/Extensions/UITableView+Helpers.swift'
+      sp.dependency 'BenToolKit/Constants'
+    end
 
-  s.subspec 'UITableView' do |sp|
-    sp.source_files = 'Sources/Extensions/UITableView+Helpers.swift'
+    sp.subspec 'UIView' do |sp|
+      sp.source_files = 'Sources/Extensions/UIView+Helpers.swift'
+    end
 
-    sp.dependency 'BenToolKit/Constants'
-  end
-
-  s.subspec 'UIView' do |sp|
-    sp.source_files = 'Sources/Extensions/UIView+Helpers.swift'
-  end
-
-  s.subspec 'IBInspectable' do |sp|
-    sp.source_files = 'Sources/Extensions/UIView+IBInspectable.swift'
+    sp.subspec 'IBInspectable' do |sp|
+      sp.source_files = 'Sources/Extensions/UIView+IBInspectable.swift'
+    end
   end
 end
