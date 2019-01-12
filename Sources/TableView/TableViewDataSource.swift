@@ -37,7 +37,7 @@ open class TableViewDataSource: NSObject {
     }()
     
     private(set) weak var tableView: UITableView?
-    private(set) var disposeBag = DisposeBag()
+    private(set) let disposeBag = DisposeBag()
     
     // MARK: - Public functions
     
