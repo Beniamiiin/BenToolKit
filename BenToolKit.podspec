@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "BenToolKit"
-  s.version               = "0.0.7"
+  s.version               = "0.0.1"
   s.summary               = "Tool kit"
   s.homepage              = "https://github.com/Beniamiiin/BenToolKit"
   s.license               = { :type => "MIT", :file => "LICENSE" }
